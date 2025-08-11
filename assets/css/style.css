@@ -1,0 +1,531 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0d1b2a;
+    --secondary-color: #0096c7;
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --card-bg-color: #ffffff;
+    --footer-bg-color: #e9ecef;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --font-family: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+/* --- VERSION 1.2: DARK MODE VARIABLES --- */
+body.dark-mode {
+    --primary-color: #e0e0e0;
+    --secondary-color: #00a9e0;
+    --background-color: #0d1b2a;
+    --text-color: #adb5bd;
+    --card-bg-color: #1b263b;
+    --footer-bg-color: #15202B;
+    --border-color: #343a40;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; }
+body.no-scroll { overflow: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+h1, h2, h3, .logo a { color: var(--primary-color); transition: color var(--transition-speed) ease; }
+h1 { font-size: 2.8rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+a { text-decoration: none; color: var(--secondary-color); font-weight: 600; transition: color var(--transition-speed) ease; }
+a:hover { color: var(--primary-color); }
+
+/* --- Header & Navigation --- */
+header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; background-color: var(--background-color); border-bottom: 1px solid var(--border-color); transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease; }
+.logo a { font-size: 1.6rem; font-weight: 700; }
+nav { display: flex; align-items: center; gap: 1rem; }
+.nav-links { list-style: none; display: flex; align-items: center; }
+.nav-links li { margin-left: 2.5rem; }
+.nav-links a { font-size: 1rem; font-weight: 600; padding-bottom: 8px; border-bottom: 3px solid transparent; color: var(--text-color); transition: border-color var(--transition-speed) ease, color var(--transition-speed) ease; }
+.nav-links a:hover { color: var(--primary-color); border-bottom-color: var(--secondary-color); }
+.nav-links a.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+.hamburger { display: none; cursor: pointer; padding: 10px; z-index: 1001; }
+.hamburger .line { width: 28px; height: 3px; background-color: var(--primary-color); margin: 6px 0; border-radius: 3px; transition: all var(--transition-speed) ease-in-out; }
+.hamburger.is-active .line1 { transform: rotate(45deg) translate(7px, 7px); }
+.hamburger.is-active .line2 { opacity: 0; }
+.hamburger.is-active .line3 { transform: rotate(-45deg) translate(7px, -7px); }
+
+/* --- Main Content & Sections --- */
+main { padding: 3rem 0; min-height: 70vh; }
+.content-section, .project-card { background: var(--card-bg-color); transition: background-color var(--transition-speed) ease; }
+.content-section { padding: 2.5rem; border-radius: var(--border-radius); box-shadow: 0 4px 15px var(--shadow-color); }
+.hero-section { display: flex; align-items: center; gap: 3rem; padding: 4rem 0; }
+.hero-text { flex: 1; }
+.hero-image { flex-basis: 320px; }
+.hero-image img { width: 100%; border-radius: 50%; border: 8px solid var(--card-bg-color); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: border-color var(--transition-speed) ease; }
+.cta-button { display: inline-block; background: var(--secondary-color); color: #fff; padding: 14px 30px; border-radius: 50px; font-weight: 700; margin-top: 1.5rem; transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease; box-shadow: 0 4px 15px rgba(0, 150, 199, 0.2); }
+.cta-button:hover { background: var(--primary-color); transform: translateY(-3px); color: #fff; }
+body.dark-mode .cta-button:hover { color: var(--background-color); }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.project-card { border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 15px var(--shadow-color); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease; display: flex; flex-direction: column; }
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); }
+.project-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.project-card .card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+.project-card h3 { margin-bottom: 0.5rem; }
+.project-card p { flex-grow: 1; margin-bottom: 1.5rem; }
+.project-links a { margin-right: 1.5rem; }
+footer { text-align: center; padding: 2.5rem 0; margin-top: 3rem; background-color: var(--footer-bg-color); border-top: 1px solid var(--border-color); transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease; }
+.social-links a { margin: 0 1rem; font-weight: 600; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    h1 { font-size: 2.2rem; }
+    .hero-text h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.5rem; }
+    .hero-section { flex-direction: column-reverse; text-align: center; padding: 2rem 0; }
+    .hero-image { flex-basis: 250px; width: 250px; }
+    .project-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .content-section { padding: 1.5rem; }
+    .nav-links { display: none; }
+    .nav-links.nav-active { display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--primary-color); flex-direction: column; justify-content: center; align-items: center; z-index: 1000; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .nav-links.nav-active li { margin: 2rem 0; }
+    .nav-links.nav-active a { font-size: 1.8rem; color: #fff; padding-bottom: 10px; }
+    .nav-links.nav-active a:hover, .nav-links.nav-active a.active { color: #fff; border-bottom-color: var(--secondary-color); }
+    .hamburger { display: block; }
+    .nav-active ~ #theme-toggle { color: #fff; }
+}
+
+/* --- VERSION 1.1, 1.2 & 1.3 FEATURES STYLING --- */
+
+/* Back to Top Button */
+#back-to-top { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: var(--secondary-color); color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); z-index: 999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease, background-color var(--transition-speed) ease; }
+#back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+#back-to-top:hover { background-color: var(--primary-color); color: var(--background-color); }
+/* Scroll Animation */
+.reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+/* Theme Toggle Button */
+#theme-toggle { background: none; border: none; cursor: pointer; padding: 5px; color: var(--primary-color); }
+#theme-toggle svg { width: 22px; height: 22px; }
+.moon-icon { display: none; }
+body.dark-mode .sun-icon { display: none; }
+body.dark-mode .moon-icon { display: block; }
+@media (max-width: 768px) { #theme-toggle { position: absolute; top: 20px; right: 80px; z-index: 1002; } .nav-active ~ #theme-toggle { color: #fff; } }
+
+/* --- VERSION 1.3: PROJECT FILTERING STYLES --- */
+#project-filters {
+    margin: 2rem 0;
+    text-align: center;
+}
+.filter-btn {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+}
+.filter-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+}
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-color);
+}
+.project-card.hide {
+    display: none;
+}
+
+/* --- VERSION 1.5: CONTACT FORM & STATUS MESSAGE STYLES --- */
+
+#contact-form {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 150, 199, 0.2);
+}
+
+/* Status Message Styling */
+.status-message {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Dark mode adjustments for form styles */
+body.dark-mode .status-message.success {
+    background-color: #1a3a24;
+    color: #c3e6cb;
+    border-color: #2c5a3d;
+}
+
+body.dark-mode .status-message.error {
+    background-color: #4a1f23;
+    color: #f5c6cb;
+    border-color: #8b3d44;
+}
+
+/* --- VERSION 1.6: PROJECT DETAIL & NEW BUTTON STYLES --- */
+
+/* New "View Details" link on project cards */
+.details-link {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Project Detail Page Layout */
+.project-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-detail-content {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.project-detail-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin: 1rem 0 2rem 0;
+}
+
+.project-meta {
+    margin-bottom: 1rem;
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-body p {
+    margin-bottom: 1rem;
+}
+
+.project-tech {
+    margin: 2rem 0;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background-color: var(--footer-bg-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Secondary button style for source code etc. */
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--footer-bg-color);
+    border-color: var(--footer-bg-color);
+    transform: translateY(0); /* Disable lift effect for secondary button */
+}
+
+body.dark-mode .cta-button.secondary {
+    color: var(--primary-color);
+}
+
+/* --- v2.0 Homepage Section Styles --- */
+.homepage-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+.homepage-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- ADD OR UPDATE THESE STYLES AT THE END OF YOUR CSS FILES --- */
+
+/* For admin/style.css */
+.table-container { overflow-x: auto; }
+.table-thumb { width: 80px; height: 50px; object-fit: cover; border-radius: 4px; }
+.category-tag-admin { display: inline-block; background-color: #e9ecef; color: #495057; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+.sidebar nav li.active a { background-color: #3498db; }
+.trumbowyg-box, .trumbowyg-editor { margin: 0 !important; }
+
+/* For assets/css/style.css */
+.project-meta .meta-item {
+    margin-left: 1rem;
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.project-meta .meta-item::before {
+    content: '•';
+    margin-right: 0.75rem;
+}
+
+/* --- v2.1 Responsive Fixes --- */
+.project-detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin: 1rem 0 2rem 0;
+}
+
+.project-meta .meta-item {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.project-meta .meta-item::before {
+    content: '•';
+    margin-right: 0.75rem;
+}
+
+/* --- v2.1 Hotfix: Make images inside project body responsive --- */
+.project-body img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below the image */
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius); /* Optional: To match site's border style */
+    box-shadow: 0 4px 15px var(--shadow-color); /* Optional: Adds a subtle shadow */
+}
+
+/* --- v2.4: Header Controls Style Update --- */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Remove margin from theme toggle as gap is now on the container */
+#theme-toggle {
+    margin-left: 0;
+}
+
+@media (max-width: 768px) {
+    .header-controls {
+        position: absolute;
+        top: 12px;
+        right: 80px;
+        z-index: 1002;
+    }
+    /* Remove individual positioning for children */
+    #theme-toggle, .lang-switcher {
+        position: static;
+        top: auto;
+        right: auto;
+    }
+}
+
+/* --- v2.4: Header Controls Layout Fix --- */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+#theme-toggle { margin-left: 0; }
+.lang-switcher { margin-left: 0; }
+
+@media (max-width: 768px) {
+    /* On mobile, group controls to the right of the hamburger */
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem; /* Space between controls and hamburger */
+    }
+    .header-controls {
+        order: 1; /* Place controls before hamburger */
+    }
+    .hamburger {
+        order: 2; /* Place hamburger after controls */
+    }
+
+    /* Remove absolute positioning from previous attempts */
+    #theme-toggle, .lang-switcher {
+        position: static;
+        top: auto;
+        right: auto;
+        z-index: auto;
+    }
+    
+    /* Ensure colors are correct when mobile nav is open */
+    .nav-active + .header-controls #theme-toggle,
+    .nav-active + .header-controls .lang-switcher a {
+        color: #fff;
+    }
+    .nav-active + .header-controls .lang-switcher a.active {
+        color: var(--secondary-color);
+    }
+    .nav-active + .header-controls .lang-switcher .lang-separator {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* --- v2.6: Learning Journey Styles --- */
+#journey-filters .filter-btn {
+    /* Styles are inherited from project filters */
+}
+.journey-card {
+    /* Styles inherited from project-card */
+}
+
+/* Star Rating System */
+.star-rating {
+    margin-bottom: 0.75rem;
+    color: #d3d3d3; /* Empty star color */
+    font-size: 1.2rem;
+}
+.star-rating .star {
+    display: inline-block;
+}
+.star-rating .star.filled {
+    color: #f39c12; /* Filled star color */
+}
+.star-rating.large {
+    font-size: 1.8rem;
+}
+.star-rating.large span {
+    vertical-align: middle;
+}
+.star-rating.large span:last-child {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Journey Detail Page */
+.journey-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.journey-section h3 {
+    margin-bottom: 1rem;
+}
+
+/* --- v2.7: Travel Journal Styles --- */
+#travel-filters {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+#travel-filters label {
+    font-weight: 600;
+}
+#travel-filters select {
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+}
+.travel-card .card-content .category-tag {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+/* --- v2.7.1: 404 Not Found Page Styles --- */
+.not-found-section {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.not-found-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.not-found-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
