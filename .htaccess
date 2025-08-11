@@ -1,0 +1,12 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+# Rule for Travel Journal Posts (Slug-based)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^travel/([a-zA-Z0-9-]+)$ travel_post.php?slug=$1 [L]
